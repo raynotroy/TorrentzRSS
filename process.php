@@ -8,7 +8,7 @@ define("RSSZ_PROXY", 'localhost:8118');
 /** Allow web browsers to get content from this node when the requesting web page is located in another domain. */
 define("RSSZ_ALLOW_CROSS_DOMAIN", true);
 define("RSSZ_SITE_NAME", "TorrentzRSS!");
-define("RSSZ_SITE_URL", "http://Theadd.github.io/TorrentzRSS/");
+define("RSSZ_SITE_URL", "http://rayrluff.github.io/TorrentzRSS/");
 /** Time in minutes for torrent applications to wait between requests. */
 define("RSSZ_MIN_TTL", 15);
 /** Timeout in seconds per page requests from this node to torrentz.eu. */
@@ -237,13 +237,13 @@ function process_url($url, &$channel) {
             case "c":
                 $item['link'] = "http://torcache.net/torrent/".strtoupper($m[4]).".torrent";
                 break;
-            case "z":
-            	$item['link'] = "http://zoink.it/torrent".strtoupper($m[4]).".torrent";
-            	break;
             case "m":
-            default:
                 $item['link'] = "magnet:?xt=urn:btih:".strtolower($m[4])."&dn=".urlencode($item['title']);
                 break;
+            case "z":
+    	    default:
+            	$item['link'] = "http://zoink.it/torrent/".strtoupper($m[4]).".torrent";
+            	break;
         }
         $item['size'] = $m[1];
         $item['size_raw'] = intval($m[1]);
