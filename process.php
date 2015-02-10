@@ -231,11 +231,6 @@ function process_url($url, &$channel) {
         $m[3] = str_replace(',', '', $m[3]);
         $item['title_lowercase'] = strtolower(htmlentities($item['title'], ENT_COMPAT, "UTF-8"));
         switch ($GLOBALS['linksSource']) {
-    	    default:
-            	$item['link'] = "http://zoink.it/torrent/".strtoupper($m[4]).".torrent";
-            case "z":
-            	$item['link'] = "http://zoink.it/torrent/".strtoupper($m[4]).".torrent";
-            	break;
             case "r":
                 $item['link'] = "http://torrage.com/torrent/".strtoupper($m[4]).".torrent";
                 break;
@@ -245,6 +240,10 @@ function process_url($url, &$channel) {
             case "m":
                 $item['link'] = "magnet:?xt=urn:btih:".strtolower($m[4])."&dn=".urlencode($item['title']);
                 break;
+            case "z":
+    	    default:
+            	$item['link'] = "http://zoink.it/torrent/".strtoupper($m[4]).".torrent";
+            	break;
         }
         $item['size'] = $m[1];
         $item['size_raw'] = intval($m[1]);
