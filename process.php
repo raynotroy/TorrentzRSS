@@ -237,6 +237,9 @@ function process_url($url, &$channel) {
             case "c":
                 $item['link'] = "http://torcache.net/torrent/".strtoupper($m[4]).".torrent";
                 break;
+            case "z":
+            	$item['link'] = "http://zoink.it/torrent".strtoupper($m[4]).".torrent";
+            	break;
             case "m":
             default:
                 $item['link'] = "magnet:?xt=urn:btih:".strtolower($m[4])."&dn=".urlencode($item['title']);
